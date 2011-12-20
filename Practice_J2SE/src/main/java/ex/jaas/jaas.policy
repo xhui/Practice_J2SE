@@ -1,0 +1,14 @@
+grant 
+{
+	permission java.awt.AWTPermission "showWindowWithoutWarningBanner";
+	permission javax.security.auth.AuthPermission "createLoginContext.Login1";
+	permission javax.security.auth.AuthPermission "doAsPrivileged";
+	permission javax.security.auth.AuthPermission "modifyPrincipals";
+	permission java.io.FilePermission "E:/Workspace/Practice/src/ex/jaas/password.txt", "read";
+	permission java.util.PropertyPermission "user.*", "read";
+};
+
+grant principal ex.jaas.SmplPrincipal "role=admin"
+{
+	permission java.util.PropertyPermission "*", "read";
+};

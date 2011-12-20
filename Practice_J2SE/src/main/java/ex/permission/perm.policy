@@ -1,0 +1,4 @@
+grant
+{
+	permission ex.permission.WordCheckPermission "food,TV,PSP", "avoid";
+};

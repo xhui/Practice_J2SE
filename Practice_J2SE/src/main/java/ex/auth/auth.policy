@@ -1,0 +1,10 @@
+grant
+{
+	permission javax.security.auth.AuthPermission "createLoginContext.Login1";
+	permission javax.security.auth.AuthPermission "doAsprivileged";
+};
+
+grant principal com.sun.security.auth.NTPrincipal "maxxu"
+{
+	permission java.util.PropertyPermission "user.*", "read";
+};
