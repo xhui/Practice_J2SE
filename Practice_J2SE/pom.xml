@@ -4,6 +4,7 @@
 	<groupId>ex.test</groupId>
 	<artifactId>Practice_J2SE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<build>
 		<plugins>
 			<plugin>
