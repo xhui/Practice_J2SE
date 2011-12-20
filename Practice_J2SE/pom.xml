@@ -4,7 +4,7 @@
 	<groupId>ex.test</groupId>
 	<artifactId>Practice_J2SE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -14,6 +14,7 @@
 					<compilerVersion>1.6</compilerVersion>
 					<target>1.6</target>
 					<source>1.6</source>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
