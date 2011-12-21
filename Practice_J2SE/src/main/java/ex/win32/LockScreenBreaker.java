@@ -1,4 +1,4 @@
-package win32;
+package ex.win32;
 
 import java.awt.Robot;
 

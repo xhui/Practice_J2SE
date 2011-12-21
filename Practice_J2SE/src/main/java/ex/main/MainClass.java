@@ -1,67 +1,81 @@
 package ex.main;
 
-import java.math.BigDecimal;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
 
 public class MainClass
 {
-
-	public static Double round(Double doubleValue, int scale)
-	{
-		Double flag = null;
-		String text = doubleValue.toString();
-		BigDecimal bd = new BigDecimal(text).setScale(scale,
-				BigDecimal.ROUND_HALF_UP);
-		flag = bd.doubleValue();
-		return flag;
-	}
-
-	// public static Double round(Double doubleValue, int scale) {
-	// Double flag = null;
-	// String text = doubleValue.toString();
-	// BigDecimal bd = new BigDecimal(text).setScale(scale,
-	// BigDecimal.ROUND_HALF_UP);
-	// flag = bd.doubleValue();
-	// return flag;
-	// }
+	private static Random	RANDOM	= new Random();
 
 	public static void main(String[] args)
 	{
-		// System.out.println(new Calculate().sum(1, 2));
-	}
-}
-
-class Ball
-{
-	String	name	= "";
-
-	public String getName()
-	{
-		return name;
+		String path = "E:/git/Practice_J2SE/Practice_J2SE/src/main/java/ex/main/test.txt";
+		long startTime = System.currentTimeMillis();
+		generate(path, 99999999);
+		System.out.println(System.currentTimeMillis() - startTime);
 	}
 
-	public void setName(String name)
+	// public static void sort
+
+	public static void generate(String filePath, int totalCount)
 	{
-		this.name = name;
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try
+		{
+			fw = new FileWriter(new File(filePath));
+			bw = new BufferedWriter(fw);
+			for (int i = 0; i < totalCount; i++)
+			{
+				bw.write(String.valueOf(getRandomNumber()));
+				bw.newLine();
+			}
+			bw.flush();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if (fw != null)
+			{
+				try
+				{
+					fw.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+				finally
+				{
+					fw = null;
+				}
+			}
+			if (bw != null)
+			{
+				try
+				{
+					bw.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+				finally
+				{
+					bw = null;
+				}
+			}
+		}
 	}
 
-}
-
-class Car
-{
-	Ball	b	= null;
-
-	public Car(Ball ball)
+	private static long getRandomNumber()
 	{
-		b = ball;
-	}
-
-	public Ball getB()
-	{
-		return b;
-	}
-
-	public void setB(Ball b)
-	{
-		this.b = b;
+		return Math.abs(RANDOM.nextInt() % 99999999);
 	}
 }
