@@ -1,4 +1,4 @@
-package com.hengtiansoft.dst.util;
+package win32;
 
 import java.awt.Robot;
 
