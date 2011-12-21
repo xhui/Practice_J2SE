@@ -1,7 +1,6 @@
 package ex.main;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public class MainClass
 {
@@ -27,12 +26,7 @@ public class MainClass
 
 	public static void main(String[] args)
 	{
-//		System.out.println(new Calculate().sum(1, 2));
-	}
-
-	private static List<Integer> sort(List<Integer> list)
-	{
-		return list.subList(0, 3);
+		// System.out.println(new Calculate().sum(1, 2));
 	}
 }
 
