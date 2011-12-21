@@ -4,7 +4,7 @@ public class TestBat
 {
 	public static void main(String[] args)
 	{
-		new MyThread().run();
+		new MyThread().start();
 	}
 }
 
