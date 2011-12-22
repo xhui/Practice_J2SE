@@ -1,7 +1,6 @@
 package ex.main;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
@@ -22,12 +21,10 @@ public class MainClass
 
 	public static void generate(String filePath, int totalCount)
 	{
-		FileWriter fw = null;
 		BufferedWriter bw = null;
 		try
 		{
-			fw = new FileWriter(new File(filePath));
-			bw = new BufferedWriter(fw);
+			bw = new BufferedWriter(new FileWriter(filePath));
 			for (int i = 0; i < totalCount; i++)
 			{
 				bw.write(String.valueOf(getRandomNumber()));
@@ -41,21 +38,6 @@ public class MainClass
 		}
 		finally
 		{
-			if (fw != null)
-			{
-				try
-				{
-					fw.close();
-				}
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}
-				finally
-				{
-					fw = null;
-				}
-			}
 			if (bw != null)
 			{
 				try
