@@ -1,8 +1,8 @@
 package ex.socket;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 
 public class MutipleThreadServer
 {
+
+	private static final Logger	logger		= Logger.getLogger(MutipleThreadServer.class
+													.getName());
 	private static final int	port		= 9001;
 	private ServerSocket		server		= null;
 	private ExecutorService		threadPool	= null;
@@ -55,16 +58,37 @@ public class MutipleThreadServer
 			InetAddress remoteAddress = socket.getInetAddress();
 			if (null == remoteAddress)
 			{
-				Logger.getLogger(this.getClass().getName()).warning(
-						"Can not get ip address");
+				logger.warning("Can not get ip address");
 				return;
 			}
 			remoteAddress.getHostAddress();
 
-			// InputStreamReader bis = new BufferedInputStream(
-			// socket.getInputStream());
-			// BufferedReader br = new BufferedReader(bis);
-
+			InputStreamReader bis = null;
+			try
+			{
+				bis = new InputStreamReader(socket.getInputStream());
+			}
+			catch (IOException e)
+			{
+				logger.severe("Error occurred when reading input stream");
+				return;
+			}
+			BufferedReader br = new BufferedReader(bis);
+			int temp;
+			StringBuilder sb = new StringBuilder();
+			try
+			{
+				temp = br.read();
+				while (temp != -1)
+				{
+					sb.append((char) temp);
+				}
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
+
 }
